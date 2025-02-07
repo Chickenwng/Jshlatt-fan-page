@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jshlatt Fan Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9d9d, #ff6f61);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow: hidden; /* Prevents unwanted scrollbars */
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 3px solid #ffcc00;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeIn 2s ease-out;
+        }
+        #visit-counter {
+            color: #ffcc00;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: counterAnimation 2s ease-out;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            border-top: 3px solid #ffcc00;
+        }
+        nav a {
+            color: white;
+            float: left;
+            display: block;
+            padding: 16px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #ff6f61;
+            color: #fff;
+            transform: scale(1.1);
+        }
+        .main-content {
+            padding: 20px;
+            animation: slideIn 1.5s ease-out;
+        }
+        .bio {
+            margin-bottom: 30px;
+        }
+        .bio h2 {
+            color: #fff;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .bio p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #f1f1f1;
+        }
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 300px;
+            height: auto;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 3px solid #ffcc00;
+        }
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes counterAnimation {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Mouse follow effect */
+        .parallax {
+            position: absolute;
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Jshlatt Fan Page</h1>
+    <p>All things Jshlatt, from streams to memes!</p>
+    <div id="visit-counter">Visitors: 0</div>
+</header>
+
+<nav>
+    <a href="#bio">Bio</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#socials">Socials</a>
+</nav>
+
+<div class="main-content">
+    <section class="bio" id="bio">
+        <h2>About Jshlatt</h2>
+        <p>Jshlatt is a popular content creator known for his humorous streams, YouTube videos, and his time on the Dream SMP. With his unique blend of sarcasm, memes, and chaotic energy, Jshlatt has gained a large and devoted following. Whether he’s wreaking havoc in Minecraft or reacting to internet trends, Jshlatt always keeps his fans entertained!</p>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h2>Jshlatt in Action</h2>
+        <div>
+            <img src="https://via.placeholder.com/300" alt="Jshlatt Image 1" class="parallax">
+            <img src="https://via.placeholder.com/300" alt="Jshlatt Image 2" class="parallax">
+            <img src="https://via.placeholder.com/300" alt="Jshlatt Image 3" class="parallax">
+        </div>
+    </section>
+
+    <section id="socials">
+        <h2>Follow Jshlatt!</h2>
+        <p>Keep up with Jshlatt on his social media platforms:</p>
+        <ul>
+            <li><a href="https://twitter.com/jshlatt" target="_blank">Twitter</a></li>
+            <li><a href="https://www.youtube.com/c/Jschlatt" target="_blank">YouTube</a></li>
+            <li><a href="https://www.twitch.tv/jshlatt" target="_blank">Twitch</a></li>
+        </ul>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2025 Jshlatt Fan Page | <a href="https://twitter.com/jshlatt" target="_blank">Follow Jshlatt!</a></p>
+</footer>
+
+<script>
+    // Get the current visit count from localStorage
+    let visitCount = localStorage.getItem('visitCount');
+    if (!visitCount) {
+        visitCount = 0;
+    }
+    visitCount = parseInt(visitCount) + 1;
+
+    // Save the updated count to localStorage
+    localStorage.setItem('visitCount', visitCount);
+
+    // Display the visit count in the header
+    document.getElementById('visit-counter').innerText = `Visitors: ${visitCount}`;
+
+    // Mouse move effect
+    document.addEventListener('mousemove', (event) => {
+        const parallaxElements = document.querySelectorAll('.parallax');
+        parallaxElements.forEach((element) => {
+            const speed = element.getAttribute('data-speed') || 1;
+            const x = (window.innerWidth - event.pageX * speed) / 100;
+            const y = (window.innerHeight - event.pageY * speed) / 100;
+            element.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+    });
+</script>
+
+</body>
+</html>
